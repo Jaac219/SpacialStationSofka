@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="./index.css">
+  <title>Sofka Station</title>
+</head>
+<body>
+  <header></header>
+  <main>
+    <section>
+      <div class="sectionTitle">
+        <h1>Create a new <span>Space Craft</span></h1>
+        <button id="btn-cancel"><i class="fa-regular fa-circle-xmark fa-2xl"></i></button>
+      </div>
+      <div class="groupForm">
+        <div class="formCreate">
+          <form id="frm-create" action="">
+            <input type="text" placeholder="Name" name="name">
+            <input type="text" placeholder="Country" name="country">
+            <input type="text" placeholder="Speed" name="speed">
+            <input type="text" placeholder="Weight" name="weight">
+            <input type="text" placeholder="Height" name="height">
+            <input type="text" placeholder="Fuel Type" name="fuelType">
+            <div class="hiden-input" id="inp-LaunchVehicle">
+              <input type="text" placeholder="potency" name="potency">
+              <input type="text" placeholder="propulsionSystem" name="propulsionSystem">
+              <input type="text" placeholder="payloadWeight" name="payloadWeight">
+            </div>
+            <div class="hiden-input" id="inp-Manned">
+              <input type="text" placeholder="objective" name="objective">
+              <input type="text" placeholder="peopleCapacity" name="peopleCapacity">
+              <input type="text" placeholder="distanceFromEarth" name="distanceFromEarth">
+            </div>
+            <div class="hiden-input" id="inp-NotManned">
+              <input type="text" placeholder="studyObjective" name="studyObjective">
+              <input type="text" placeholder="state" name="state">
+              <input type="text" placeholder="thrust" name="thrust">
+            </div>
+            <button>Enviar</button>
+          </form>
+        </div>
+        <div class="imageCraft">
+          <img id="img_craft" src="./public/img/craft.gif" alt="">
+        </div>
+      </div>
+      <div class="groupButton">
+        <button class="btn-typeCraft" value="LaunchVehicle">Launch Vehicle</button>
+        <button class="btn-typeCraft" value="Manned">Manned </button>
+        <button class="btn-typeCraft" value="NotManned">Not Manned</button>
+      </div>
+    </section>
+  </main>
+  <script src="./dist/main.js"></script>
+</body>
+</html>
