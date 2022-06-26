@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  
+    "build": "webpack",
+    "builddev": "webpack --mode development"
   },
   "author": "Johan Arteaga <jaac219@gmail.com>",
   "license": "ISC",
