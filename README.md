@@ -18,13 +18,13 @@
 ## Implementación
 ### Diagrama de clases:
 
-<p align="left">
+<p>
   <img height="350" src="./clases.JPG" />
 </p>
 
 ### Diagrama Entidad Relación:
 
-<p align="left">
+<p>
   <img height="350" src="./modelo.JPG" />
 </p>
 
