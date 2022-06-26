@@ -19,13 +19,13 @@
 ### Diagrama de clases:
 
 <p align="left">
-  <img height="350" src="./clases.jpg" />
+  <img height="350" src="./clases.JPG" />
 </p>
 
 ### Diagrama Entidad Relación:
 
 <p align="left">
-  <img height="350" src="./modelo.jpg" />
+  <img height="350" src="./modelo.JPG" />
 </p>
 
 ***
