@@ -12,6 +12,10 @@ class LaunchVehicle extends SpaceCraft{
     get potency(){return this.#potency}
     get propulsionSystem(){return this.#propulsionSystem}
     get payloadWeight(){return this.#payloadWeight}
+
+    refuel(){
+        return 'El tanque esta lleno de combustible';
+    }
 }
 
 export default LaunchVehicle;

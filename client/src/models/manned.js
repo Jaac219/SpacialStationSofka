@@ -12,6 +12,13 @@ class Manned extends SpaceCraft{
     get objective(){return this.#objective}
     get peopleCapacity(){return this.#peopleCapacity}
     get distanceFromEarth(){return this.#distanceFromEarth}
+
+    openParachute(){
+        return `El paracaidas abrio correctamente`;
+    }
+    toLand(){
+        return 'El piloto ha tomado el control del tren de aterrizaje';
+    }
 }
 
 export default Manned;

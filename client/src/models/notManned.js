@@ -12,6 +12,16 @@ class NotManned extends SpaceCraft{
     get studyObjective(){return this.#studyObjective}
     get state(){return this.#state}
     get thrust(){return this.#thrust}
+
+    changeState(){
+        console.log(this.#state);
+        if(this.#state == "active") this.#state = "inactive";
+        else this.#state = "active";
+        return this;
+    }
+    toLand(){
+        return 'La asistencia de piloto automatico para el aterrizaje se ha activado';
+    }
 }
 
 export default NotManned;

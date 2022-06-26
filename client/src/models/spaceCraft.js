@@ -22,6 +22,13 @@ class SpaceCraft{
     get weight(){return this.#weight}
     get height(){return this.#height}
     get fuelType(){return this.#fuelType}
+
+    takeOff(){
+        return 'La nave ha despegado';
+    }
+    toLand(){
+        return 'La nave ha aterrizado';
+    }
 }
 
 export default SpaceCraft;

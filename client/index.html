@@ -9,36 +9,71 @@
   <title>Sofka Station</title>
 </head>
 <body>
-  <header></header>
+  <header>
+    <div class="contain-filter">
+      <div>
+        <input id="inpSearch" type="text" placeholder="Search">
+        <button id="bntSearch">Buscar</button>
+      </div>
+      <div>
+        <label for="">Filter: </label>
+        <select name="country" id="selCountry">
+          <option value="">Country</option>
+          <option value="eeuu">EEUU</option>
+          <option value="europa">Europa</option>
+          <option value="rusia">Rusia</option>
+          <option value="japon">Japon</option>
+          <option value="china">China</option>
+        </select>
+        <select name="speed" id="selSpeed">
+          <option value="">Speed</option>
+          <option value="1">Under 100km</option>
+          <option value="2">More 500km</option>
+          <option value="3">Between 100 and 500</option>
+        </select>
+      </div>
+      <div>
+        <button id="restartCarts">Refresh</button>
+      </div>
+    </div>
+    <div id="contain-cards"></div>
+  </header>
   <main>
     <section>
       <div class="sectionTitle">
         <h1>Create a new <span>Space Craft</span></h1>
         <button id="btn-cancel"><i class="fa-regular fa-circle-xmark fa-2xl"></i></button>
       </div>
+      <!-- vista seleccion tipo de nave en el contenedor principal -->
+      <div class="groupButton">
+        <button class="btn-typeCraft" value="LaunchVehicle">Launch Vehicle</button>
+        <button class="btn-typeCraft" value="Manned">Manned </button>
+        <button class="btn-typeCraft" value="NotManned">Not Manned</button>
+      </div>
+      <!-- vista crear nave en el contenedor principal -->
       <div class="groupForm">
         <div class="formCreate">
-          <form id="frm-create" action="">
-            <input type="text" placeholder="Name" name="name">
-            <input type="text" placeholder="Country" name="country">
-            <input type="text" placeholder="Speed" name="speed">
-            <input type="text" placeholder="Weight" name="weight">
-            <input type="text" placeholder="Height" name="height">
-            <input type="text" placeholder="Fuel Type" name="fuelType">
+          <form id="frm-create">
+            <input type="text" class="inp-create" placeholder="Name" name="name">
+            <input type="text" class="inp-create" placeholder="Country" name="country">
+            <input type="number" class="inp-create" placeholder="Speed km/h" name="speed">
+            <input type="number" class="inp-create" placeholder="Weight tonnes" name="weight">
+            <input type="number" class="inp-create" placeholder="Height m" name="height">
+            <input type="text" class="inp-create" placeholder="Fuel Type" name="fuelType">
             <div class="hiden-input" id="inp-LaunchVehicle">
-              <input type="text" placeholder="potency" name="potency">
-              <input type="text" placeholder="propulsionSystem" name="propulsionSystem">
-              <input type="text" placeholder="payloadWeight" name="payloadWeight">
+              <input type="number" class="inp-create" placeholder="Potency Horsepower" name="potency">
+              <input type="text" class="inp-create" placeholder="PropulsionSystem" name="propulsionSystem">
+              <input type="number" class="inp-create" placeholder="PayloadWeight tonnes" name="payloadWeight">
             </div>
             <div class="hiden-input" id="inp-Manned">
-              <input type="text" placeholder="objective" name="objective">
-              <input type="text" placeholder="peopleCapacity" name="peopleCapacity">
-              <input type="text" placeholder="distanceFromEarth" name="distanceFromEarth">
+              <input type="text" class="inp-create" placeholder="objective" name="objective">
+              <input type="number" class="inp-create" placeholder="peopleCapacity" name="peopleCapacity">
+              <input type="number" class="inp-create" placeholder="distance From Earth Km" name="distanceFromEarth">
             </div>
             <div class="hiden-input" id="inp-NotManned">
-              <input type="text" placeholder="studyObjective" name="studyObjective">
-              <input type="text" placeholder="state" name="state">
-              <input type="text" placeholder="thrust" name="thrust">
+              <input type="text" class="inp-create" placeholder="Study Objective" name="studyObjective">
+              <input type="text" class="inp-create" placeholder="state" name="state">
+              <input type="" class="inp-create" placeholder="Thrust tonnes" name="thrust">
             </div>
             <button>Enviar</button>
           </form>
@@ -47,10 +82,19 @@
           <img id="img_craft" src="./public/img/craft.gif" alt="">
         </div>
       </div>
-      <div class="groupButton">
-        <button class="btn-typeCraft" value="LaunchVehicle">Launch Vehicle</button>
-        <button class="btn-typeCraft" value="Manned">Manned </button>
-        <button class="btn-typeCraft" value="NotManned">Not Manned</button>
+      <!-- vista detalle de la nave en el contenedor principal -->
+      <div id="contain-detail">
+        <div class="imageCraft">
+          <img id="img_craft-detail" src="./public/img/craft.gif" alt="">
+        </div>
+        <span></span>
+        <div id="spaceCraft-detail">
+          <div class="info"></div>
+          <div class="actions">
+            <div class="btns-actions"></div>
+            <div class="answers"></div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
