@@ -10,7 +10,7 @@ let data = {};
 //los datos con los cuales se realiza una nueva instancia de la clase correspondiente a su tipo
 async function createSpaceCraft(){
     try {
-        let dbSpaceCraft = await axios.post("https://app-softka-station.herokuapp.com/spaceCraft", data);
+        let dbSpaceCraft = await axios.post(process.env.BASE_URL || "https://app-softka-station.herokuapp.com/spaceCraft", data);
         objSpaceCrafts.setSpaceCraft(dbSpaceCraft.data);
         data = {};
     } catch (error) {
@@ -22,7 +22,7 @@ async function createSpaceCraft(){
 //con los datos que trae
 async function loadSpaceCrafts(){
     try {
-        let dbSpaceCrafts = await axios.get("https://app-softka-station.herokuapp.com/spaceCraft");
+        let dbSpaceCrafts = await axios.get(process.env.BASE_URL || "https://app-softka-station.herokuapp.com/spaceCraft");
         dbSpaceCrafts.data.forEach((data)=>{
             objSpaceCrafts.setSpaceCraft(data);
         })
@@ -92,8 +92,8 @@ function showDetailSpaceCraft(obj, bl){
     })
     if(bl) addActions(obj);
 }
+//Se asigna un boton con una accion adicional segun el tipo de nave
 function addActions(obj){
-    //Se asigna un boton con una accion adicional segun el tipo de nave
     $(".actions > .btns-actions").empty();
     $(".actions > .answers").empty();
 
