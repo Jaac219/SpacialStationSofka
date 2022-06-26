@@ -1,5 +1,10 @@
 # Spacial Station Sofka
 
+<p align="right">
+  <img height="200" src="./craft.gif" />
+</p>
+
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando la arquitectura cliente servidor.
@@ -14,13 +19,13 @@
 ### Diagrama de clases:
 
 <p align="left">
-  <img height="400" src="./client/public/clases.jpg" />
+  <img height="400" src="./clases.jpg" />
 </p>
 
 ### Diagrama Entidad Relación:
 
 <p align="left">
-  <img height="400" src="./client/public/modelo.jpg" />
+  <img height="400" src="./modelo.jpg" />
 </p>
 
 ***
