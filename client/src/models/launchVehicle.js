@@ -3,8 +3,8 @@ class LaunchVehicle extends SpaceCraft{
     #potency;
     #propulsionSystem;
     #payloadWeight;
-    constructor({name, country, type, speed, weight, height, fuelType, potency, propulsionSystem, payloadWeight}){
-        super(name, country, type, speed, weight, height, fuelType);
+    constructor({id, name, country, type, speed, weight, height, fuelType, potency, propulsionSystem, payloadWeight}){
+        super(id, name, country, type, speed, weight, height, fuelType);
         this.#potency=potency;
         this.#propulsionSystem=propulsionSystem;
         this.#payloadWeight=payloadWeight;

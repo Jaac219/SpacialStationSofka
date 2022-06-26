@@ -1,3 +1,4 @@
+import axios from "axios";
 import Main from "./app.js";
 import $ from "jquery";
 
@@ -5,10 +6,31 @@ import $ from "jquery";
 const objSpaceCrafts = new Main();
 let data = {};
 
-function createSpaceCraft(){
-    objSpaceCrafts.setSpaceCraft(data);
-    data = {};
+//Se registra la nueva nave espacial en la base de datos y cuando se crea correctamente el servidor responde con 
+//los datos con los cuales se realiza una nueva instancia de la clase correspondiente a su tipo
+async function createSpaceCraft(){
+    try {
+        let dbSpaceCraft = await axios.post("http://localhost:3001/spaceCraft", data);
+        objSpaceCrafts.setSpaceCraft(dbSpaceCraft.data);
+        data = {};
+    } catch (error) {
+        console.log(error);
+    }
 }
+
+//Cuando se inicializa la pagina se traen todas las naves registradas y se crea un objeto nuevo de cada una
+//con los datos que trae
+async function loadSpaceCrafts(){
+    try {
+        let dbSpaceCrafts = await axios.get("http://localhost:3001/spaceCraft");
+        dbSpaceCrafts.data.forEach((data)=>{
+            objSpaceCrafts.setSpaceCraft(data);
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+// ---------------------------------------------------------------------------------------
 
 // Funciones que controlan el dinamismo de de la pagina ocultando y mostrando contenedores
 function initialState(){
@@ -35,10 +57,8 @@ function renderCards(){
     let spaceCrafts = objSpaceCrafts.spaceCrafts; //Devuelve un arreglo con todas las naves creadas
     let idSpaceCrafts = objSpaceCrafts.idSpaceCrafts; //Devuelve un arreglo con los ids de las naves que se deben mostrar
     spaceCrafts.forEach((val)=>{
-        let rs = idSpaceCrafts.find((vl)=>vl==val.name) //Verifica si el id actual esta en la lista de los que se deben mostrar
-                                                        //No olvidar cambiar el name por id cuando implemente bases de datos
-        
-        if (rs) {            
+        let rs = idSpaceCrafts.find((vl)=>vl==val.id) //Verifica si el id actual esta en la lista de los que se deben mostrar
+        if (rs) {
             let elements = 
             `<div class="card-spacecraft">
                 <div class="img-card">
@@ -64,7 +84,7 @@ function showDetailSpaceCraft(obj, bl){
     $("#spaceCraft-detail > .info").empty();
     //No puedo saber que claves tiene el objeto por que son atributos privados, solo puedo acceder a ellos indicando la clave(debo saberla)
     //asi que cree un arreglo con todas las claves posibles asi todas las que tengan un valor me lo traigo y lo muestro
-    let keys = ["name", "country", "type", "speed", "weight", "height", "fuelType", "potency", "propulsionSystem", "payloadWeight", "objective", "peopleCapacity", "distanceFromEarth", "studyObjective", "state", "thrust"];
+    let keys = ["id", "name", "country", "type", "speed", "weight", "height", "fuelType", "potency", "propulsionSystem", "payloadWeight", "objective", "peopleCapacity", "distanceFromEarth", "studyObjective", "state", "thrust"];
     keys.forEach((val)=>{
         if(obj[val]){
             $("#spaceCraft-detail > .info").append(`<span><b>${val}: </b>${obj[val]}</span><br>`);
@@ -103,7 +123,8 @@ function addActions(obj){
 // ----------------------------------------------------------------------------------------
 
 // Event listeners 
-$(window).on("load", function(){
+$(window).on("load", async function(){
+    await loadSpaceCrafts();
     let filter = {}
     renderCards();
 
@@ -116,12 +137,12 @@ $(window).on("load", function(){
         showFormCreate();
     })
     
-    $("#frm-create").on("submit", (e)=>{
+    $("#frm-create").on("submit", async (e)=>{
         e.preventDefault();
         for (let i = 0; i < e.target.length; i++) {
             if (e.target[i].value) data[e.target[i].name] = e.target[i].value; 
         }
-        createSpaceCraft();
+        await createSpaceCraft();
         renderCards();
         initialState();
         $(".inp-create").val("");

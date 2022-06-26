@@ -3,8 +3,8 @@ class NotManned extends SpaceCraft{
     #studyObjective;
     #state;
     #thrust;
-    constructor({name, country, type, speed, weight, height, fuelType, studyObjective, state, thrust}){
-        super(name, country, type, speed, weight, height, fuelType);
+    constructor({id, name, country, type, speed, weight, height, fuelType, studyObjective, state, thrust}){
+        super(id, name, country, type, speed, weight, height, fuelType);
         this.#studyObjective=studyObjective;
         this.#state=state;
         this.#thrust=thrust;

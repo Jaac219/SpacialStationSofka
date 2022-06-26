@@ -1,4 +1,5 @@
 class SpaceCraft{
+    #id;
     #name;
     #country;
     #type;
@@ -6,7 +7,8 @@ class SpaceCraft{
     #weight;
     #height;
     #fuelType;
-    constructor(name, country, type, speed, weight, height, fuelType){
+    constructor(id, name, country, type, speed, weight, height, fuelType){
+        this.#id = id;
         this.#name = name;
         this.#country=country;
         this.#type=type;
@@ -15,6 +17,7 @@ class SpaceCraft{
         this.#height=height;
         this.#fuelType=fuelType;
     }
+    get id(){return this.#id}
     get name(){return this.#name}
     get country(){return this.#country}
     get type(){return this.#type}

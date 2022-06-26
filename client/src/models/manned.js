@@ -3,8 +3,8 @@ class Manned extends SpaceCraft{
     #objective;
     #peopleCapacity;
     #distanceFromEarth;
-    constructor({name, country, type, speed, weight, height, fuelType, objective, peopleCapacity, distanceFromEarth}){
-        super(name, country, type, speed, weight, height, fuelType);
+    constructor({id, name, country, type, speed, weight, height, fuelType, objective, peopleCapacity, distanceFromEarth}){
+        super(id, name, country, type, speed, weight, height, fuelType);
         this.#objective=objective;
         this.#peopleCapacity=peopleCapacity;
         this.#distanceFromEarth=distanceFromEarth;
