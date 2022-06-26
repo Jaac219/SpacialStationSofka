@@ -10,7 +10,7 @@ let data = {};
 //los datos con los cuales se realiza una nueva instancia de la clase correspondiente a su tipo
 async function createSpaceCraft(){
     try {
-        let dbSpaceCraft = await axios.post("http://localhost:3001/spaceCraft", data);
+        let dbSpaceCraft = await axios.post("https://app-softka-station.herokuapp.com/spaceCraft", data);
         objSpaceCrafts.setSpaceCraft(dbSpaceCraft.data);
         data = {};
     } catch (error) {
@@ -22,7 +22,7 @@ async function createSpaceCraft(){
 //con los datos que trae
 async function loadSpaceCrafts(){
     try {
-        let dbSpaceCrafts = await axios.get("http://localhost:3001/spaceCraft");
+        let dbSpaceCrafts = await axios.get("https://app-softka-station.herokuapp.com/spaceCraft");
         dbSpaceCrafts.data.forEach((data)=>{
             objSpaceCrafts.setSpaceCraft(data);
         })
